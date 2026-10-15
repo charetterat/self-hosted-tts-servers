@@ -1,0 +1,236 @@
+{
+  "updated": "2026-10-16",
+  "meta": {
+    "title": "Self-Hosted TTS Servers",
+    "tagline": "OpenAI-compatible text-to-speech you run on your own hardware",
+    "intro": "A curated index of text-to-speech you can host yourself: HTTP servers that expose an OpenAI-compatible /v1/audio/speech endpoint, the local inference engines underneath them, voice-cloning backends, browser UIs, and long-form generators. Every entry links to the upstream project; nothing here is a re-host or a mirror.",
+    "owner_repo": "charetterat/self-hosted-tts-servers",
+    "disclaimer": "Compiled from public sources — no independent testing of the linked projects. Star counts were read from the GitHub API on 2026-10-16 and drift daily."
+  },
+  "sections": [
+    {
+      "title": "OpenAI-compatible servers",
+      "icon": "🔌",
+      "description": "Drop-in replacements for the OpenAI speech endpoint. Point an existing client at these instead of api.openai.com and nothing else in your stack has to change.",
+      "items": [
+        {
+          "name": "Kokoro-FastAPI",
+          "url": "https://github.com/remsky/Kokoro-FastAPI",
+          "what": "Dockerized FastAPI wrapper around Kokoro-82M exposing an OpenAI-compatible /v1/audio/speech endpoint, with voice mixing and multiple output formats. The most-starred dedicated TTS server here.",
+          "tags": ["FastAPI", "Docker", "Kokoro"]
+        },
+        {
+          "name": "Chatterbox-TTS-Server",
+          "url": "https://github.com/devnen/Chatterbox-TTS-Server",
+          "what": "Self-hosting front end for the Chatterbox model, shipping both a web UI for auditioning voices and an API surface for programmatic use.",
+          "tags": ["Chatterbox", "WebUI"]
+        },
+        {
+          "name": "chatterbox-tts-api",
+          "url": "https://github.com/travisvn/chatterbox-tts-api",
+          "what": "A deliberately minimal local OpenAI-compatible TTS API built on Chatterbox, aimed at people who want the endpoint and not much else.",
+          "tags": ["Chatterbox", "Minimal"]
+        },
+        {
+          "name": "openedai-speech",
+          "url": "https://github.com/matatonic/openedai-speech",
+          "what": "OpenAI-API-compatible server over Coqui xtts_v2 with voice cloning. Archived upstream — listed because it is still widely forked and referenced, not because it is maintained.",
+          "tags": ["XTTS", "Archived"]
+        },
+        {
+          "name": "xtts-api-server",
+          "url": "https://github.com/daswer123/xtts-api-server",
+          "what": "A simple FastAPI server for XTTSv2 covering voice cloning, multiple languages and streaming responses.",
+          "tags": ["XTTS", "FastAPI"]
+        },
+        {
+          "name": "Chatterbox-TTS-Extended",
+          "url": "https://github.com/petermg/Chatterbox-TTS-Extended",
+          "what": "Fork of Chatterbox that accepts whole text files as input and batches long-form synthesis rather than one utterance at a time.",
+          "tags": ["Chatterbox", "Batch"]
+        },
+        {
+          "name": "Dia-TTS-Server",
+          "url": "https://github.com/devnen/Dia-TTS-Server",
+          "what": "Serving wrapper for the Dia model, focused on multi-speaker dialogue rather than single-narrator speech.",
+          "tags": ["Dia", "Multi-speaker"]
+        },
+        {
+          "name": "mlx-omni-server",
+          "url": "https://github.com/madroidmaq/mlx-omni-server",
+          "what": "Local inference server built on Apple's MLX, exposing OpenAI-shaped endpoints for speech and other modalities on Apple Silicon.",
+          "tags": ["MLX", "Apple Silicon"]
+        }
+      ]
+    },
+    {
+      "title": "Inference engines",
+      "icon": "⚙️",
+      "description": "The model runtimes the servers above are thin wrappers around. Useful directly when you want to embed synthesis in-process instead of over HTTP.",
+      "items": [
+        {
+          "name": "Coqui TTS",
+          "url": "https://github.com/coqui-ai/TTS",
+          "what": "The long-standing deep-learning TTS toolkit. The original company shut down and the repo is archived; the community continuation is the next entry.",
+          "tags": ["Archived", "Toolkit"]
+        },
+        {
+          "name": "coqui-ai-TTS (community fork)",
+          "url": "https://github.com/idiap/coqui-ai-TTS",
+          "what": "Maintained fork of Coqui TTS under the Idiap research institute, keeping XTTS and the rest of the toolkit installable on current Python.",
+          "tags": ["XTTS", "Maintained fork"]
+        },
+        {
+          "name": "F5-TTS",
+          "url": "https://github.com/SWivid/F5-TTS",
+          "what": "Flow-matching TTS trained to clone a voice from a short reference clip, with an actively developed training and inference codebase.",
+          "tags": ["Voice cloning", "Flow matching"]
+        },
+        {
+          "name": "Orpheus-TTS",
+          "url": "https://github.com/canopyai/Orpheus-TTS",
+          "what": "Llama-based speech model producing expressive output with paralinguistic tags such as laughter and sighs.",
+          "tags": ["Llama", "Expressive"]
+        },
+        {
+          "name": "Kokoro",
+          "url": "https://github.com/hexgrad/kokoro",
+          "what": "An 82M-parameter open-weight TTS model that punches well above its size, and the reason most of the servers above exist.",
+          "tags": ["82M", "Open weights"]
+        },
+        {
+          "name": "kokoro-onnx",
+          "url": "https://github.com/thewh1teagle/kokoro-onnx",
+          "what": "Kokoro reimplemented on ONNX Runtime, trading the PyTorch dependency for a portable inference graph.",
+          "tags": ["ONNX", "Kokoro"]
+        },
+        {
+          "name": "Piper",
+          "url": "https://github.com/rhasspy/piper",
+          "what": "Fast local neural TTS designed for Raspberry Pi-class hardware. Archived at this path; development continues in the GPL fork below.",
+          "tags": ["Archived", "Edge"]
+        },
+        {
+          "name": "piper1-gpl",
+          "url": "https://github.com/OHF-Voice/piper1-gpl",
+          "what": "The current home of Piper development, relicensed and restructured with a C API and Python bindings.",
+          "tags": ["Edge", "C API"]
+        },
+        {
+          "name": "sherpa-onnx",
+          "url": "https://github.com/k2-fsa/sherpa-onnx",
+          "what": "ONNX-based speech toolkit spanning TTS, recognition and diarisation across many platforms, with prebuilt binaries and language bindings.",
+          "tags": ["ONNX", "Multi-platform"]
+        },
+        {
+          "name": "espeak-ng",
+          "url": "https://github.com/espeak-ng/espeak-ng",
+          "what": "The formant synthesiser that will not win a naturalness contest but runs anywhere, in almost any language, and is a common fallback backend for larger systems.",
+          "tags": ["Formant", "Fallback"]
+        }
+      ]
+    },
+    {
+      "title": "Browser and desktop front ends",
+      "icon": "🖥️",
+      "description": "Graphical ways to drive local models without writing a client.",
+      "items": [
+        {
+          "name": "TTS-WebUI",
+          "url": "https://github.com/rsxdalv/TTS-WebUI",
+          "what": "Gradio and React interface bundling a large set of local speech and audio models behind one control panel.",
+          "tags": ["Gradio", "Multi-model"]
+        },
+        {
+          "name": "TTS-Audio-Suite",
+          "url": "https://github.com/diodiogod/TTS-Audio-Suite",
+          "what": "ComfyUI custom nodes for local multi-engine, multi-language speech generation, for people already working inside a ComfyUI graph.",
+          "tags": ["ComfyUI", "Nodes"]
+        },
+        {
+          "name": "voice-pro",
+          "url": "https://github.com/abus-aikorea/voice-pro",
+          "what": "Gradio WebUI aimed at creators, combining TTS, voice cloning, translation and dubbing in one interface.",
+          "tags": ["Gradio", "Dubbing"]
+        },
+        {
+          "name": "orpheus-tts-local",
+          "url": "https://github.com/isaiahbjork/orpheus-tts-local",
+          "what": "Runs the Orpheus 3B model locally through LM Studio, with a small client for driving it.",
+          "tags": ["LM Studio", "Orpheus"]
+        }
+      ]
+    },
+    {
+      "title": "Long-form generation",
+      "icon": "📚",
+      "description": "Tooling that turns documents into hours of audio, where the hard part is chunking and pacing rather than the synthesis itself.",
+      "items": [
+        {
+          "name": "audiblez",
+          "url": "https://github.com/santinic/audiblez",
+          "what": "Generates audiobooks from e-books, handling chapter detection and long-run synthesis locally.",
+          "tags": ["Audiobook", "EPUB"]
+        },
+        {
+          "name": "abogen",
+          "url": "https://github.com/denizsafak/abogen",
+          "what": "Converts EPUBs, PDFs and plain text into audiobooks with synchronised captions and chapter-level progress tracking.",
+          "tags": ["Audiobook", "Captions"]
+        }
+      ]
+    }
+  ],
+  "verification_sources": [
+    {
+      "name": "Kokoro-FastAPI",
+      "url": "https://github.com/remsky/Kokoro-FastAPI",
+      "expected_token": "Kokoro-FastAPI"
+    },
+    {
+      "name": "Chatterbox-TTS-Server",
+      "url": "https://github.com/devnen/Chatterbox-TTS-Server",
+      "expected_token": "Chatterbox-TTS-Server"
+    },
+    {
+      "name": "chatterbox-tts-api",
+      "url": "https://github.com/travisvn/chatterbox-tts-api",
+      "expected_token": "chatterbox-tts-api"
+    },
+    {
+      "name": "xtts-api-server",
+      "url": "https://github.com/daswer123/xtts-api-server",
+      "expected_token": "xtts-api-server"
+    },
+    {
+      "name": "F5-TTS",
+      "url": "https://github.com/SWivid/F5-TTS",
+      "expected_token": "F5-TTS"
+    },
+    {
+      "name": "Kokoro",
+      "url": "https://github.com/hexgrad/kokoro",
+      "expected_token": "kokoro"
+    },
+    {
+      "name": "kokoro-onnx",
+      "url": "https://github.com/thewh1teagle/kokoro-onnx",
+      "expected_token": "kokoro-onnx"
+    },
+    {
+      "name": "piper1-gpl",
+      "url": "https://github.com/OHF-Voice/piper1-gpl",
+      "expected_token": "piper1-gpl"
+    },
+    {
+      "name": "sherpa-onnx",
+      "url": "https://github.com/k2-fsa/sherpa-onnx",
+      "expected_token": "sherpa-onnx"
+    },
+    {
+      "name": "abogen",
+      "url": "https://github.com/denizsafak/abogen",
+      "expected_token": "abogen"
+    }
+  ]
+}
