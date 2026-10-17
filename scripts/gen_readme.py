@@ -40,7 +40,11 @@ def anchor(s):
 def render(d):
     m, secs = d["meta"], d["sections"]
     L = []
-    L.append("# %s" % m["title"])
+    # 🔴 2026-10-17：日期进 **H1**，⛔ 不只放正文末尾。
+    #    理由（Darion 指出，jdnei 实证）：Google 摘要抓的是标题那一行；
+    #    用户第一眼看到的也是它。「今天刚更新」同时买到**可信度**和**活跃度权重**。
+    #    ⚠️ 旧版放在第 72 行 `- Last updated:` —— 爬虫和用户都等于没看见。
+    L.append("# %s (updated %s)" % (m["title"], d.get("updated", "")))
     L.append("")
     L.append("> %s" % m["tagline"])
     L.append("")

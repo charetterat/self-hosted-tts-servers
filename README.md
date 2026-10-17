@@ -1,4 +1,4 @@
-# Self-Hosted TTS Servers
+# Self-Hosted TTS Servers (updated 2026-10-17)
 
 > OpenAI-compatible text-to-speech you run on your own hardware
 
