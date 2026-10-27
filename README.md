@@ -1,4 +1,4 @@
-# Self-Hosted TTS Servers (updated 2026-10-27)
+# Self-Hosted TTS Servers (updated 2026-10-28)
 
 > OpenAI-compatible text-to-speech you run on your own hardware
 
@@ -72,7 +72,7 @@ Tooling that turns documents into hours of audio, where the hard part is chunkin
 
 - **24** entries across **4** sections.
 - Compiled from public sources; every linked project carries its own license.
-- Last updated: **2026-10-27**.
+- Last updated: **2026-10-28**.
 - Data lives in `data/content.json` — this README is generated, do not edit by hand.
 
 ## License
